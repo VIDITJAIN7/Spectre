@@ -1,235 +1,287 @@
 # Agentic Full-Stack Skeleton
 
-A generative template system for rapid prototyping of full-stack applications. This "Founder's Factory" tool provides a master blueprint with placeholder-driven customization, enabling you to quickly scaffold new applications with consistent architecture patterns, steering files, and agent hooks.
+A template system for generating complete full-stack TypeScript applications through AI-assisted development. Edit template files with your app concept, run agent hooks, and get a working application scaffold in minutes.
 
-## What Is This?
+## What This Is
 
-The Agentic Full-Stack Skeleton is NOT a functional application - it's a meta-framework for generating other applications through AI-assisted development. Think of it as a smart template that guides AI agents to build exactly what you need.
+This is a **generative template system** - not an application itself, but a blueprint that creates applications. It combines:
+
+- **Template files** with placeholder markers you customize
+- **Steering files** that guide AI agent behavior  
+- **Agent hooks** that automate scaffolding and code generation
+
+Think of it as a "Founder's Factory" - describe your app idea, and the system generates the complete codebase structure.
 
 ## Quick Start
 
-1. **Customize the Templates**: Replace placeholder markers in template files with your application-specific values
-2. **Configure Steering Files**: Update `.kiro/steering/` files to guide AI agent behavior
-3. **Run Agent Hooks**: Execute `.kiro/hooks/` to automate scaffolding and code generation
-4. **Build Your App**: Let AI agents implement your customized design
+### Option A: Automatic (Recommended)
 
-## Core Components
+1. **Edit `templates/requirements.md`**
+   - Replace `<APP_NAME>` with your application name
+   - Replace `<APP_DESCRIPTION>` with what your app does
+   - Add your user stories and acceptance criteria
 
-### 1. Template Files (`templates/`)
+2. **Edit `templates/design.md`**
+   - Replace `<ARCHITECTURE_PATTERN>` with your chosen architecture
+   - Replace `<FRONTEND_TECH>`, `<BACKEND_TECH>`, `<DATABASE_TYPE>` with your stack
+   - Define your `<DATA_MODELS>` and core entities
 
-- **requirements-template.md**: Master template for defining application requirements with user stories
-- **design-template.md**: Master template for specifying architecture, layers, and technical approach
-- **tasks-template.md**: Master template for breaking down implementation into actionable coding tasks
+3. **Save the file** → The `Auto-Generate App` hook runs automatically!
+   - Validates your templates
+   - Creates complete directory structure
+   - Generates all boilerplate code
+   - Reports what was created
 
-Copy these templates to start a new project and replace all `<PLACEHOLDER>` markers with your application-specific values.
+That's it! Your complete application is generated automatically.
 
-### 2. Steering Files (`.kiro/steering/`)
+### Option B: Manual (Step-by-Step Control)
 
-Guide AI agent behavior during code generation:
+If you prefer more control, run hooks manually:
 
-- **product.md**: Product vision, target users, value proposition
-- **structure.md**: Directory layout, module organization, naming conventions
-- **tech.md**: Technology stack, coding standards, development tools
+1. **Customize Templates** (same as Option A)
 
-### 3. Agent Hooks (`.kiro/hooks/`)
+2. **Run "Validate Structure"** hook
+   ```
+   Kiro → Open Command Palette → "Run Agent Hook" → "Validate Structure"
+   ```
 
-Pre-packaged automation for common workflows:
+3. **Run "Scaffold Application"** hook
+   ```
+   Kiro → Open Command Palette → "Run Agent Hook" → "Scaffold Application"
+   ```
 
-- **scaffold-app.md**: Create initial directory structure and base files
-- **validate-structure.md**: Verify placeholders are replaced and structure is valid
-- **generate-boilerplate.md**: Create common code patterns based on design
+4. **Run "Generate Boilerplate"** hook
+   ```
+   Kiro → Open Command Palette → "Run Agent Hook" → "Generate Boilerplate"
+   ```
 
-## Placeholder Reference
+### Configure Steering Files (Optional)
 
-All placeholders follow the `<PLACEHOLDER_NAME>` format. Replace these with your application-specific values:
+The `.kiro/steering/` files guide AI behavior - they're already configured with sensible defaults:
 
-| Placeholder | Purpose | Example Value |
-|------------|---------|---------------|
-| `<APP_NAME>` | Application name | "TaskFlow Pro" |
-| `<APP_DESCRIPTION>` | Brief description | "A collaborative task management platform" |
-| `<CORE_FEATURES>` | Key features list | "Real-time collaboration, task assignments, notifications" |
-| `<USER_STORIES>` | User story descriptions | "As a team lead, I want to assign tasks..." |
-| `<DOMAIN_TERMS>` | Domain-specific glossary | "Sprint: A 2-week development cycle" |
-| `<ARCHITECTURE_PATTERN>` | Architecture style | "Microservices with event-driven communication" |
-| `<FRONTEND_TECH>` | Frontend stack | "React 18, TypeScript, Tailwind CSS" |
-| `<BACKEND_TECH>` | Backend stack | "Node.js, Express, PostgreSQL" |
-| `<DATABASE_TYPE>` | Database choice | "PostgreSQL with Prisma ORM" |
-| `<DATA_MODELS>` | Core data entities | "User, Task, Project, Team" |
-| `<CUSTOM_MODULES>` | Extension modules | "Analytics, Reporting, Integrations" |
-| `<PRODUCT_VISION>` | Product vision statement | "Simplify team collaboration through intelligent task management" |
-| `<TARGET_USERS>` | Target audience | "Small to medium development teams (5-50 people)" |
-| `<VALUE_PROPOSITION>` | Unique value | "AI-powered task prioritization and workload balancing" |
-| `<CORE_PRINCIPLES>` | Design principles | "Simplicity, Speed, Collaboration" |
-| `<DIRECTORY_STRUCTURE>` | Folder layout | "src/components, src/services, src/models" |
-| `<MODULE_PATTERNS>` | Code organization | "Feature-based modules with clear boundaries" |
-| `<NAMING_CONVENTIONS>` | File naming rules | "kebab-case for files, PascalCase for components" |
-| `<FRONTEND_STACK>` | Frontend technologies | "React, TypeScript, Vite, React Query" |
-| `<BACKEND_STACK>` | Backend technologies | "Node.js, Express, TypeScript, Prisma" |
-| `<DATA_STACK>` | Data technologies | "PostgreSQL, Redis for caching" |
-| `<DEV_TOOLS>` | Development tools | "ESLint, Prettier, Vitest, Playwright" |
-| `<CODING_STANDARDS>` | Code style rules | "Airbnb style guide, functional components" |
-| `<TASK_DESCRIPTIONS>` | Implementation tasks | "Implement user authentication service" |
-| `<REQ_REFS>` | Requirement references | "Requirements: 1.1, 2.3, 4.2" |
+- **product.md** - Product vision and design principles
+- **structure.md** - Directory layout and naming conventions  
+- **tech.md** - Technology stack (React, Express, TypeScript, Vite, Tailwind)
 
-## Customization Workflow
+Only edit these if you want different technologies or conventions.
 
-### Step 1: Define Your Application Concept
+### Develop with Auto-Documentation
 
-Start by identifying what you want to build:
-- What problem does it solve?
-- Who are the users?
-- What are the core features?
+As you code, agent hooks automatically maintain documentation:
 
-### Step 2: Copy Template Files
+- **Save a route file** → `docs/api.md` updates automatically
+- **Create a component** → Test stub generates automatically
 
-Copy the template files to your project:
-```
-cp templates/requirements-template.md .kiro/specs/my-app/requirements.md
-cp templates/design-template.md .kiro/specs/my-app/design.md
-cp templates/tasks-template.md .kiro/specs/my-app/tasks.md
-```
-
-### Step 3: Customize Requirements Template
-
-Open `.kiro/specs/my-app/requirements.md` and replace:
-- `<APP_NAME>` with your application name
-- `<APP_DESCRIPTION>` with a clear description
-- `<USER_STORIES>` with your specific user stories
-- `<DOMAIN_TERMS>` with domain-specific terminology
-- `<FEATURE_NAME_X>` with your feature names
-- `<ACCEPTANCE_CRITERION_X_Y>` with specific acceptance criteria
-
-### Step 4: Customize Design Template
-
-Open `.kiro/specs/my-app/design.md` and replace:
-- `<ARCHITECTURE_PATTERN>` with your chosen architecture
-- `<FRONTEND_TECH>`, `<BACKEND_TECH>`, `<DATABASE_TYPE>` with your tech stack
-- `<DATA_MODELS>` with your core entities
-- `<CUSTOM_MODULES>` with extension points
-
-### Step 5: Customize Tasks Template
-
-Open `.kiro/specs/my-app/tasks.md` and replace:
-- `<APP_NAME>` with your application name
-- `<MODEL_X>` with your data model names
-- `<RESOURCE_X>` with your API resource names
-- `<FEATURE_X>` with your feature names
-- `<REQ_REFS>` with specific requirement references
-- `<ADVANCED_FEATURE_X>` with advanced features you plan to build
-
-### Step 6: Configure Steering Files
-
-Update files in `.kiro/steering/`:
-
-**product.md**: Define your product vision and target users
-**structure.md**: Specify your directory structure and organization
-**tech.md**: Detail your technology choices and coding standards
-
-### Step 7: Validate Placeholders
-
-Run the validation hook to ensure all placeholders are replaced:
-```
-Execute: .kiro/hooks/validate-structure.md
-```
-
-### Step 8: Generate Application Scaffold
-
-Run the scaffold hook to create your application structure:
-```
-Execute: .kiro/hooks/scaffold-app.md
-```
-
-### Step 9: Generate Boilerplate Code
-
-Run the boilerplate hook to create common code patterns:
-```
-Execute: .kiro/hooks/generate-boilerplate.md
-```
-
-### Step 10: Implement Tasks
-
-Open `.kiro/specs/my-app/tasks.md` and execute tasks one by one using Kiro's task execution feature.
-
-## Example Use Case: Task Management App
-
-Here's how you'd customize the skeleton for a task management application:
-
-**requirements-template.md** → **requirements.md**:
-```markdown
-<APP_NAME> → "TaskFlow Pro"
-<APP_DESCRIPTION> → "A collaborative task management platform for development teams"
-<USER_STORY_1> → "As a team lead, I want to create and assign tasks..."
-<FEATURE_NAME_1> → "Task Management"
-```
-
-**design-template.md** → **design.md**:
-```markdown
-<ARCHITECTURE_PATTERN> → "Client-server with RESTful API"
-<FRONTEND_TECH> → "React 18, TypeScript, Tailwind CSS"
-<BACKEND_TECH> → "Node.js, Express, TypeScript"
-<DATABASE_TYPE> → "PostgreSQL with Prisma ORM"
-<DATA_MODELS> → "User, Task, Project, Team, Comment"
-```
-
-**product.md**:
-```markdown
-<PRODUCT_VISION> → "Simplify team collaboration through intelligent task management"
-<TARGET_USERS> → "Development teams of 5-50 people"
-<VALUE_PROPOSITION> → "AI-powered task prioritization and workload balancing"
-```
-
-## How It Works
+## Project Structure
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│              Agentic Full-Stack Skeleton                │
-│                                                         │
-│  1. You customize templates with placeholders          │
-│  2. Steering files guide AI agent behavior             │
-│  3. Agent hooks automate scaffolding                   │
-│  4. AI agents implement your design                    │
-│  5. You get a working application                      │
-└─────────────────────────────────────────────────────────┘
+agentic-fullstack-skeleton/
+├── .kiro/
+│   ├── hooks/                    # Agent automation
+│   │   ├── auto-generate-app    # 🚀 Runs complete workflow automatically
+│   │   ├── scaffold-application  # Creates app structure
+│   │   ├── generate-boilerplate  # Generates code patterns
+│   │   ├── validate-structure    # Validates templates
+│   │   ├── docsync-api          # Auto-updates API docs
+│   │   └── teststub-component   # Auto-generates test stubs
+│   ├── specs/                    # Spec for the skeleton itself
+│   │   └── agentic-fullstack-skeleton/
+│   └── steering/                 # AI guidance files
+│       ├── product.md           # Product vision
+│       ├── structure.md         # Directory conventions
+│       └── tech.md              # Technology stack
+└── templates/                    # Template files you customize
+    ├── requirements.md          # App requirements template
+    ├── design.md               # App design template
+    └── tasks.md                # Implementation tasks template
 ```
 
-## Relationship Between Components
+## Template Placeholders
 
-- **Requirements** define WHAT you're building (features, user needs)
-- **Design** defines HOW it's structured (architecture, layers, patterns)
-- **Tasks** define the STEPS to implement (actionable coding tasks)
-- **Steering Files** guide AI BEHAVIOR (standards, conventions, principles)
-- **Agent Hooks** AUTOMATE workflows (scaffolding, validation, generation)
+All placeholders use `<PLACEHOLDER_NAME>` format. Common ones:
 
-## Local-Only Development
+| Placeholder | Example Value |
+|------------|---------------|
+| `<APP_NAME>` | "TaskFlow Pro" |
+| `<APP_DESCRIPTION>` | "A collaborative task management platform" |
+| `<ARCHITECTURE_PATTERN>` | "Client-server with RESTful API" |
+| `<FRONTEND_TECH>` | "React 18, TypeScript, Tailwind CSS" |
+| `<BACKEND_TECH>` | "Node.js, Express, TypeScript" |
+| `<DATABASE_TYPE>` | "Local JSON files" |
+| `<DATA_MODELS>` | "User, Task, Project, Team" |
 
-This skeleton operates entirely locally:
-- No external API calls required
-- No database setup needed for template generation
-- No network connectivity required
-- All files generated using local file system operations
+See template files for complete placeholder reference.
 
-Perfect for rapid prototyping without infrastructure overhead.
+## Generated Application Stack
+
+Applications generated by this skeleton use:
+
+**Frontend**
+- React 18 with TypeScript
+- Vite for build tooling
+- Tailwind CSS for styling
+- Zustand for state management
+- React Router for navigation
+
+**Backend**
+- Node.js with Express
+- TypeScript with strict mode
+- Zod for validation
+- Local JSON file storage (no database needed)
+
+**Testing**
+- Vitest for unit/integration tests
+- React Testing Library for components
+
+**Development**
+- Hot reload (Vite HMR + nodemon)
+- TypeScript strict mode
+- Local-only (no external services)
+
+## Agent Hooks Explained
+
+### Automatic Hook (Runs on file save)
+
+**Auto-Generate App** 🚀
+- Triggers when you save `templates/requirements.md` or `templates/design.md`
+- Runs complete workflow: validation → scaffolding → boilerplate
+- Stops if validation fails and reports issues
+- Generates complete application in one step
+
+### Manual Hooks (Run on demand)
+
+**Validate Structure**
+- Scans for unreplaced placeholders
+- Verifies file structure is complete
+- Checks markdown syntax
+- Reports what needs fixing
+
+**Scaffold Application**  
+- Creates complete directory structure
+- Generates configuration files
+- Creates entry points and base files
+- Sets up testing infrastructure
+
+**Generate Boilerplate**
+- Reads your data models from design.md
+- Generates TypeScript interfaces
+- Creates API routes and services
+- Generates React components and hooks
+- Creates validation schemas
+
+### Development Hooks (Run on file save)
+
+**DocSync-API**
+- Triggers when you save route files
+- Parses Express routes and JSDoc comments
+- Updates `docs/api.md` automatically
+
+**TestStub-Component**
+- Triggers when you create new components
+- Generates corresponding test file
+- Includes basic test structure with TODOs
+
+## Example Workflow
+
+Let's say you want to build a task management app:
+
+1. **Edit templates/requirements.md**
+   ```markdown
+   <APP_NAME> → "TaskFlow"
+   <APP_DESCRIPTION> → "Simple task management for small teams"
+   ```
+
+2. **Edit templates/design.md**
+   ```markdown
+   <DATA_MODELS> → "User, Task, Project"
+   <FRONTEND_TECH> → "React 18, TypeScript, Tailwind CSS"
+   <BACKEND_TECH> → "Node.js, Express, TypeScript"
+   ```
+
+3. **Save the file** → Auto-Generate App hook runs automatically!
+   - ✓ Validates templates
+   - ✓ Creates complete app structure  
+   - ✓ Generates User, Task, Project code
+   - ✓ Reports 50+ files created
+
+4. **Start coding** → Auto-documentation keeps docs updated
+
+## Why This Approach?
+
+**Traditional scaffolding**: Generic templates, manual customization, no guidance
+
+**This skeleton**: 
+- Templates guide you to think through requirements and design first
+- Steering files ensure consistent AI-generated code
+- Agent hooks automate repetitive tasks
+- Auto-documentation keeps codebase maintainable
+
+Perfect for:
+- Solo founders validating product ideas quickly
+- Teams building internal tools
+- Prototyping MVPs for user testing
+- Learning full-stack architecture patterns
+
+## Customization
+
+### Change Technology Stack
+
+Edit `.kiro/steering/tech.md` to use different technologies:
+- Swap React for Vue or Svelte
+- Use different state management (Redux, Jotai)
+- Add database instead of JSON files
+- Change styling approach
+
+### Modify Directory Structure
+
+Edit `.kiro/steering/structure.md` to change:
+- Folder organization
+- File naming conventions
+- Import path patterns
+
+### Add Custom Hooks
+
+Create new hooks in `.kiro/hooks/` for:
+- Custom code generation patterns
+- Additional documentation automation
+- Deployment automation
+- Code quality checks
 
 ## Troubleshooting
 
-**Issue**: Placeholders not being replaced
-- **Solution**: Ensure you're using exact placeholder syntax: `<PLACEHOLDER_NAME>`
+**Validation fails with unreplaced placeholders**
+- Open the file listed in the error
+- Search for `<` to find remaining placeholders
+- Replace with your actual values
 
-**Issue**: Agent hooks not executing
-- **Solution**: Verify context files (requirements.md, design.md) exist and are properly formatted
+**Scaffold hook doesn't create expected structure**
+- Check `.kiro/steering/structure.md` matches your expectations
+- Verify templates/requirements.md and design.md are complete
+- Run validation hook first to catch issues
 
-**Issue**: Generated structure doesn't match design
-- **Solution**: Review steering files to ensure they align with your design.md specifications
+**Generated code has errors**
+- Check that data models in design.md are well-defined
+- Verify steering files have correct technology choices
+- Review generated code and fix TypeScript errors
 
-**Issue**: Validation errors after customization
-- **Solution**: Run validate-structure.md hook to identify missing or invalid placeholders
+**Auto-hooks not triggering**
+- Verify hooks are enabled in `.kiro/hooks/*.kiro.hook`
+- Check file patterns match your file locations
+- Restart Kiro IDE if needed
+
+## What's in .kiro/specs/?
+
+The `.kiro/specs/agentic-fullstack-skeleton/` directory contains the **spec for building this skeleton system itself** - it's meta-documentation about how this template system was designed and implemented. 
+
+**You don't need to edit these files** - they're reference documentation for understanding or extending the skeleton system.
 
 ## Next Steps
 
-1. Review the template files in `.kiro/specs/agentic-full-stack-skeleton/`
-2. Start customizing placeholders with your application concept
-3. Configure steering files to match your preferences
-4. Execute agent hooks to generate your application scaffold
-5. Begin implementing tasks with AI assistance
+1. **Review templates/** - Understand what placeholders need replacing
+2. **Customize templates** - Add your app concept and requirements  
+3. **Run validation** - Ensure everything is ready
+4. **Run scaffold** - Generate your application structure
+5. **Run boilerplate** - Generate common code patterns
+6. **Start coding** - Build your features with AI assistance
 
-Ready to build something amazing? Start customizing!
+Ready to build? Start by editing `templates/requirements.md` with your app idea!
