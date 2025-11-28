@@ -1,0 +1,41 @@
+# VLC Build artifacts
+vlc-3.0.21/vlc.exe
+vlc-3.0.21/bin/
+vlc-3.0.21/lib/
+vlc-3.0.21/plugins/
+vlc-3.0.21/*.o
+vlc-3.0.21/*.lo
+vlc-3.0.21/*.la
+vlc-3.0.21/.libs/
+vlc-3.0.21/Makefile
+vlc-3.0.21/config.log
+vlc-3.0.21/config.status
+vlc-3.0.21/libtool
+
+# Temporary files
+*.tmp
+*.log
+*.cache
+spectre_debug.log
+
+# Skin build artifacts
+spectre_skin/
+*.zip
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Cache directories
+spectre_cache/
+
+# Personal API keys (if you create a local override)
+appsettings.local.json

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Theme PUBLIC "-//VideoLAN//DTD VLC Skins V2.0//EN" "skin.dtd">
+
+<Theme version="2.0" tooltipfont="defaultfont" magnet="15" alpha="255" movealpha="255">
+  
+  <ThemeInfo name="Spectre Horror" author="Spectre Dev" email="dev@spectre.com" webpage="http://www.videolan.org" />
+
+  <!-- Bitmap Resources - All assets from assets folder -->
+  <Bitmap id="main_bg" file="main_bg.png" alphacolor="#FF00FF" />
+  <Bitmap id="buttons_normal" file="buttons_strip.png" alphacolor="#FF00FF" />
+  <Bitmap id="buttons_hover" file="buttons_hover.png" alphacolor="#FF00FF" />
+  <Bitmap id="slider_bg" file="slider_bg.png" alphacolor="#FF00FF" />
+  <Bitmap id="cone" file="cone_icon.png" alphacolor="#FF00FF" />
+
+  <!-- Main Window -->
+  <Window id="main_window" visible="true" x="100" y="100" dragdrop="true" playondrop="true">
+    <Layout id="normal" width="800" height="600">
+      
+      <!-- Background Image -->
+      <Image id="bg" x="0" y="0" width="800" height="600" image="main_bg" />
+      
+      <!-- Control Buttons with hover states -->
+      <!-- Play button - CORRUPTED: Y offset +5px -->
+      <Button id="play" x="50" y="555" lefttop="0 0" rightbottom="100 100" 
+              up="buttons_normal" over="buttons_hover" 
+              action="vlc.play()" tooltiptext="Play" />
+      
+      <Button id="pause" x="160" y="550" lefttop="100 0" rightbottom="200 100" 
+              up="buttons_normal" over="buttons_hover" 
+              action="vlc.pause()" tooltiptext="Pause" />
+      
+      <Button id="stop" x="270" y="550" lefttop="200 0" rightbottom="300 100" 
+              up="buttons_normal" over="buttons_hover" 
+              action="vlc.stop()" tooltiptext="Stop" />
+      
+      <Button id="prev" x="380" y="550" lefttop="300 0" rightbottom="400 100" 
+              up="buttons_normal" over="buttons_hover" 
+              action="vlc.playlist.previous()" tooltiptext="Previous" />
+      
+      <Button id="next" x="490" y="550" lefttop="400 0" rightbottom="500 100" 
+              up="buttons_normal" over="buttons_hover" 
+              action="vlc.playlist.next()" tooltiptext="Next" />
+      
+      <Button id="fullscreen" x="600" y="550" lefttop="500 0" rightbottom="600 100" 
+              up="buttons_normal" over="buttons_hover" 
+              action="vlc.fullscreen()" tooltiptext="Fullscreen" />
+      
+      <!-- Time Slider with background -->
+      <Image id="time_slider_bg" x="50" y="510" width="700" height="30" image="slider_bg" />
+      <Slider id="time" x="50" y="515" width="700" height="20" 
+              value="time" tooltiptext="Time: $T" thickness="10" />
+      
+      <!-- Volume Slider - CORRUPTED: 3px narrower -->
+      <Image id="vol_slider_bg" x="50" y="470" width="200" height="30" image="slider_bg" />
+      <Slider id="volume" x="50" y="475" width="197" height="20" 
+              value="volume" tooltiptext="Volume: $V" thickness="10" />
+      
+      <!-- Hidden Panel for Jumpscare Overlay -->
+      <Panel id="jumpscare_overlay" x="0" y="0" width="800" height="600" visible="false" />
+      
+    </Layout>
+  </Window>
+
+</Theme>
